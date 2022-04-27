@@ -78,10 +78,10 @@ p {
   top: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.88));
+  background: linear-gradient(135deg, black, rgba(0, 0, 0, 0.88));
   background-size: 600% 600%;
-  -webkit-animation: bg-animado 10s ease infinite;
-          animation: bg-animado 10s ease infinite;
+  -webkit-animation: bg-animado 5s ease infinite;
+          animation: bg-animado 5s ease infinite;
 }
 
 .conteudo {
@@ -118,7 +118,7 @@ p {
 }
 
 .imagem-capa {
-  margin: 50em auto;
+  margin: 200px auto 900px;
   width: 447px;
 }
 .imagem-capa img {

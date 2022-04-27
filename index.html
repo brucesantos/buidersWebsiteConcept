@@ -11,7 +11,7 @@
 <body>
     <div class="header-placeholder"></div>
     <div class="background-overlay"></div>
-    <header>
+    <header class="introDesce">
         <div class="logo"> 
             <div class="quadrado div1"> </div> 
             <div class="quadrado div2"> </div> 
@@ -30,13 +30,6 @@
             <li>Conhecimento</li>
         </ol>
     </header>
-    <div class="controles-do-rodape">
-        <a href="#" class="botao outline-white lingua">
-            <img src="assets/img/brasil.png" alt="bandeira do brasil" width="21" height="15">
-            <span>PT</span>
-        </a>
-        <a href="#" class="botao outline-primary">contato</a>
-    </div>
 
     <ol class="nav-lateral">
         <li class="ativa">intro</li>
@@ -50,19 +43,19 @@
     <div class="conteudo">
         <section class="espaco-pagina">
             <div>
-                <h1 class="gradiente-em-texto">Builders</h1>
-                <p class="largura-de-leitura">Eros, nulla adipiscing pharetra tincidunt porttitor. Felis pretium euismod dui, tortor, a ullamcorper. Mauris, rhoncus at aliquet felis, gravida. </p>
+                <h1 class="introDesce" class="gradiente-em-texto">Builders</h1>
+                <p class="largura-de-leitura introDesce">Eros, nulla adipiscing pharetra tincidunt porttitor. Felis pretium euismod dui, tortor, a ullamcorper. Mauris, rhoncus at aliquet felis, gravida. </p>
             </div>
             <div class="numeros">
-                <div class="item">
+                <div class="item introDesce">
                     <span class="valor">350+</span>
                     <span class="nome">people</span>
                 </div>
-                <div class="item">
+                <div class="item introDesce">
                     <span class="valor">28</span>
                     <span class="nome">apps</span>
                 </div>
-                <div class="item">
+                <div class="item introDesce">
                     <span class="valor">15</span>
                     <span class="nome">clientes</span>
                 </div>
@@ -73,23 +66,56 @@
         </section>
     </div>
 
+    <div class="controles-do-rodape">
+        <a href="#" class="botao outline-white lingua introSobe">
+            <img src="assets/img/brasil.png" alt="bandeira do brasil" width="21" height="15">
+            <span>PT</span>
+        </a>
+        <a href="#" class="botao outline-primary introSobe">contato</a>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-    <script src="node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+    <!-- <script src="node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script> -->
     <script src="node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
     <script>
         $(function() {
-            // init controller
-            var controller = new ScrollMagic.Controller();
-
-            // criando um tween pra teste
-            var nomeDaAnimacao = new TweenMax.to('.imagem-capa', 1.5, {
-                backgroundColor: 'red'
+            //=================================
+            // ANIMACOES GSAP ONLOAD
+            //=================================
+            gsap.from('.introDesce', {
+                duration: .5,
+                ease: "back.out(2)",
+                y: -100,
+                opacity: 0,
+                stagger: .2
             });
-
+            gsap.from('.introSobe', {
+                duration: .5,
+                ease: "back.out(2)",
+                y: 100,
+                opacity: 0,
+                stagger: .2
+            });
+            gsap.from('.imagem-capa', {
+                ease: "power3.out",
+                duration: 3,
+                y: 500,
+                opacity: 0
+            });
+            
+            //=================================
+            // ANIMACOES SCROLL
+            //=================================
+            var controller = new ScrollMagic.Controller();
+            var nomeDaAnimacao = new gsap.to('.imagem-capa', {
+                scale: .75,
+                marginTop: 0
+            });
             var containerScene = new ScrollMagic.Scene({
-                triggerElement: '#terra'
+                triggerElement: '#terra',
+                duration: 500
             })
             .setTween(nomeDaAnimacao) // binds o tween com a scene
             .addIndicators() // debug pra remover depois
