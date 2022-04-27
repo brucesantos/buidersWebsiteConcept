@@ -1,0 +1,21 @@
+.numeros {
+    display: flex;
+    margin-left: 2em;
+    .item {
+        display: flex;
+        align-items: flex-end;
+        margin-right: 4em;
+        .valor {
+            font-family: "Arial Black", Helvetica, sans-serif;
+            color: black;
+            font-size: 4em;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: $color-primary;
+            font-weight: bold;
+        }
+        .nome {
+            margin-left: -2em;
+            font-weight: 700;
+        }
+    }
+}

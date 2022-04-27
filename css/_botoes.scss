@@ -1,0 +1,29 @@
+.botao {
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    padding: .75em 1em;
+    letter-spacing: .1em;
+    font-weight: 500;
+    span {
+        padding-left: .5em;
+    }
+    transition: all .3s ease-out;
+}
+.outline-primary {
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    &:hover {
+        background-color: $color-primary;
+        color: black;
+    }
+}
+.outline-white {
+    color: white;
+    border: 2px solid white;
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}
